@@ -34,7 +34,7 @@ const TopNav = () => {
     }, [Query]);
 
     return (
-        <div className="w-full bg-[#1F1E24] flex justify-center py-6">
+        <div className="w-full bg-[#1F1E24] flex justify-center py-6 mx-3">
             <div className="relative w-[90%] sm:w-[70%] md:w-[50%] lg:w-[40%]">
                 <GoSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-400 text-xl pointer-events-none" />
 

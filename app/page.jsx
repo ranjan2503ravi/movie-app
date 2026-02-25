@@ -11,7 +11,6 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    
     const timer = setTimeout(() => {
       setLoading(false);
     }, 2000);
@@ -22,7 +21,7 @@ const Home = () => {
   return (
     <>
       <Sidenav />
-      <div className="w-[80%] h-full overflow-auto scrollbar-hide">
+<div className="flex-1 h-screen overflow-y-auto scrollbar-hide bg-[#1A1A20]">
         {loading ? (
           <Loading />
         ) : (
