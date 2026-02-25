@@ -34,16 +34,16 @@ const TopNav = () => {
     }, [Query]);
 
     return (
-        <div className="w-full bg-[#1F1E24] flex justify-center py-6 mx-3">
+        <div className="w-full bg-[#1F1E24] flex justify-center py-6">
             <div className="relative w-[90%] sm:w-[70%] md:w-[50%] lg:w-[40%]">
-                <GoSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-400 text-xl pointer-events-none" />
+                <GoSearch className="absolute  left-6 top-1/2 -translate-y-1/2 text-zinc-400 text-xl pointer-events-none" />
 
                 <input
                     onChange={(e) => setQuery(e.target.value)}
                     value={Query}
                     type="text"
                     placeholder="Search movies, TV shows, or actors..."
-                    className="w-full pl-12 pr-12 py-3 bg-[#2A2932] text-white placeholder:text-zinc-500 rounded-xl border border-zinc-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
+                    className="w-full mx-3 pl-12 pr-12 py-3 bg-[#2A2932] text-white placeholder:text-zinc-500 rounded-xl border border-zinc-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
                 />
 
                 {Query.length > 0 && (
