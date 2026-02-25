@@ -4,6 +4,7 @@ import { useParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import instance from "@/app/Utils/axios";
 import { IoArrowBackOutline } from "react-icons/io5";
+import Loading from "@/app/Components/Partials/Loading";
 
 const Page = () => {
   const { id } = useParams();
@@ -46,73 +47,68 @@ const Page = () => {
   }, [id]);
 
   if (!details) {
-    return <div className="text-white p-10">Loading...</div>;
+    return <div className="w-full h-full flex justify-center items-center">
+      <Loading/>
+    </div>
   }
 
   return (
-    <div className="min-h-screen bg-[#1F1E24] text-white px-6 md:px-16 py-16 relative">
+  <div className="min-h-screen bg-[#0f0f0f] text-white relative overflow-hidden flex-1">
 
-      
+   
+    <div className="relative h-[85vh] w-full">
+
+      <img
+        src={`https://image.tmdb.org/t/p/original${details.backdrop_path}`}
+        alt=""
+        className="absolute inset-0 w-full h-full object-cover"
+      />
+
+     
+      <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-[#0f0f0f] via-transparent to-transparent"></div>
+
+     
       <button
         onClick={() => window.history.back()}
-        className="absolute top-6 left-6 flex items-center gap-2 text-white bg-zinc-800/60 backdrop-blur-md px-4 py-2 rounded-full hover:bg-zinc-700 transition z-50"
+        className="absolute top-8 left-10 z-50 bg-white/10 backdrop-blur-md px-5 py-2 rounded-full hover:bg-white/20 transition"
       >
-        <IoArrowBackOutline size={20} />
-        Back
+        ← Back
       </button>
 
       
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-14">
+      <div className="relative z-40 h-full flex items-end pb-20 px-10 md:px-20">
 
-        
-        <div className="relative group">
-          <div className="absolute -inset-2 bg-gradient-to-tr from-purple-600/30 to-indigo-500/20 rounded-3xl blur-2xl opacity-70 group-hover:opacity-100 transition duration-500"></div>
+        <div className="max-w-3xl space-y-6">
 
-          <img
-            src={
-              details?.poster_path
-                ? `https://image.tmdb.org/t/p/w500${details.poster_path}`
-                : details?.backdrop_path
-                ? `https://image.tmdb.org/t/p/w500${details.backdrop_path}`
-                : "/images/f9.jpg"
-            }
-            alt={details?.title}
-            className="relative w-80 rounded-3xl shadow-2xl hover:scale-105 transition duration-500"
-          />
-        </div>
-
-      
-        <div className="flex-1 space-y-8">
-
-          <h1 className="text-5xl font-extrabold tracking-tight text-white drop-shadow-xl">
-            {details.title || details.name}
+          <h1 className="text-5xl md:text-6xl font-extrabold leading-tight">
+            {details.title}
           </h1>
 
-          <div className="flex items-center gap-6 text-zinc-400 text-sm">
-            <span className="bg-purple-600 text-white px-3 py-1 rounded-full font-semibold">
+          <div className="flex items-center gap-6 text-sm text-gray-300">
+            <span className="bg-yellow-500 text-black px-3 py-1 rounded-md font-bold">
               ⭐ {details.vote_average?.toFixed(1)}
             </span>
             <span>{details.release_date?.split("-")[0]}</span>
             <span>{details.runtime} min</span>
           </div>
 
-          <p className="text-zinc-300 leading-relaxed max-w-2xl">
+          <p className="text-gray-300 max-w-xl leading-relaxed">
             {details.overview}
           </p>
 
-         
           <div className="flex gap-4 pt-4">
 
             {videoKey && (
               <button
                 onClick={() => setShowTrailer(true)}
-                className="bg-white text-black px-8 py-3 rounded-xl font-semibold hover:scale-105 transition duration-300 shadow-lg"
+                className="bg-white text-black px-8 py-3 rounded-md font-semibold hover:scale-105 transition"
               >
-                ▶ Watch Trailer
+                ▶ Play Trailer
               </button>
             )}
 
-            <button className="bg-zinc-700/60 backdrop-blur-md px-8 py-3 rounded-xl hover:bg-zinc-600 transition duration-300">
+            <button className="bg-white/20 backdrop-blur-md px-8 py-3 rounded-md hover:bg-white/30 transition">
               + My List
             </button>
 
@@ -120,32 +116,34 @@ const Page = () => {
 
         </div>
       </div>
-
-      
-      {showTrailer && videoKey && (
-        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50">
-
-          <button
-            onClick={() => setShowTrailer(false)}
-            className="absolute top-8 right-8 text-white text-3xl hover:text-purple-400 transition"
-          >
-            ✕
-          </button>
-
-          <div className="w-[95%] md:w-[75%] h-[60%] rounded-2xl overflow-hidden shadow-2xl border border-zinc-700">
-            <iframe
-              className="w-full h-full"
-              src={`https://www.youtube.com/embed/${videoKey}?autoplay=1`}
-              title="Trailer"
-              allow="autoplay; encrypted-media"
-              allowFullScreen
-            />
-          </div>
-
-        </div>
-      )}
     </div>
-  );
+
+
+    
+    {showTrailer && videoKey && (
+      <div className="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center z-50">
+
+        <button
+          onClick={() => setShowTrailer(false)}
+          className="absolute top-10 right-10 text-white text-4xl hover:text-red-500 transition"
+        >
+          ✕
+        </button>
+
+        <div className="w-[95%] md:w-[70%] aspect-video rounded-xl overflow-hidden shadow-2xl">
+          <iframe
+            className="w-full h-full"
+            src={`https://www.youtube.com/embed/${videoKey}?autoplay=1`}
+            allow="autoplay; encrypted-media"
+            allowFullScreen
+          />
+        </div>
+
+      </div>
+    )}
+
+  </div>
+);
 };
 
 export default Page;

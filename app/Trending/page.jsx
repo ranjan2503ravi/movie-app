@@ -40,20 +40,48 @@ const Trending = () => {
   return (
     <div className="min-h-screen bg-[#121212] text-white px-4 md:px-16 py-10 relative flex-1">
       
-      <div className="flex items-center gap-9">
-        
+      <div className="relative mb-12">
+
+  <div className="absolute -top-8 left-0 w-60 h-60 bg-purple-600/30 blur-[110px] rounded-full"></div>
+
+  <div className="relative flex items-center justify-between flex-wrap gap-6">
+
+    <div className="flex items-center gap-6">
+
       <button
         onClick={() => window.history.back()}
-        className=" flex items-center gap-2 mb-6 text-white bg-zinc-800/60 backdrop-blur-md px-4 py-2 rounded-full hover:bg-zinc-700 transition"
+        className="flex items-center gap-2 
+                   px-5 py-2.5 
+                   bg-white/10 backdrop-blur-xl 
+                   border border-white/20 
+                   rounded-full 
+                   hover:bg-purple-500/30 
+                   hover:border-purple-400/40 
+                   transition-all duration-300 
+                   shadow-lg"
       >
-        <IoArrowBackOutline size={20} />
-        Back
+        <IoArrowBackOutline size={18} />
+        <span className="font-medium">Back</span>
       </button>
 
-      <h1 className="text-3xl md:text-4xl font-extrabold mb-6 drop-shadow-xl">
-        Trending Now
-      </h1>
-     </div>
+      <div className="hidden md:block w-px h-8 bg-white/20"></div>
+
+      <div>
+        <p className="text-purple-400 text-xs uppercase tracking-widest">
+          Discover
+        </p>
+        <h1 className="text-3xl md:text-4xl font-extrabold 
+                       bg-gradient-to-r from-white to-zinc-400 
+                       bg-clip-text text-transparent 
+                       tracking-tight">
+          Trending Now
+        </h1>
+      </div>
+
+    </div>
+
+  </div>
+</div>
 
       <InfiniteScroll
         dataLength={trending.length}

@@ -49,15 +49,47 @@ const Popular = () => {
   return (
     <div className="min-h-screen bg-[#1F1E24] text-white px-6 py-10 flex-1">
       
-      <button
-        onClick={() => router.back()}
-        className="mb-6 px-4 py-2 bg-purple-500/40 text-white rounded-lg hover:bg-purple-500/60 transition"
-      >
-        ← Back
-      </button>
+      <div className="relative mb-14">
 
-      <h1 className="text-4xl font-bold mb-10">Popular Movies</h1>
+ 
+  <div className="absolute -top-10 left-0 w-72 h-72 bg-purple-600/30 blur-[120px] rounded-full"></div>
 
+  <div className="relative flex items-center justify-between flex-wrap gap-6">
+
+   
+    <div>
+      <p className="text-purple-400 uppercase tracking-widest text-sm">
+        TMDB Collection
+      </p>
+
+      <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-transparent">
+        Popular Movies
+      </h1>
+
+      <p className="text-zinc-400 mt-2 text-sm md:text-base max-w-md">
+        Discover trending and most watched movies worldwide.
+      </p>
+    </div>
+
+    
+    <button
+      onClick={() => router.back()}
+      className="flex items-center gap-2 px-6 py-3 
+                 bg-white/10 backdrop-blur-xl 
+                 border border-white/20 
+                 rounded-full 
+                 hover:bg-purple-500/30 
+                 hover:border-purple-400/40 
+                 transition-all duration-300 
+                 shadow-lg"
+    >
+      <span className="text-lg">←</span>
+      <span className="font-medium">Go Back</span>
+    </button>
+
+  </div>
+</div>
+     
       <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
         {movies.map((movie, index) => {
           const isLast = movies.length === index + 1;
