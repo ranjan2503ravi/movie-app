@@ -35,9 +35,9 @@ const HorizontalCards = () => {
   }, [category]);
 
   return (
-    <div className="w-full min-h-[40vh] p-5">
+    <div className="w-full min-h-[40vh] p-5 ">
       
-      <div className="mb-5 flex justify-between items-center">
+      <div className="mb-5 flex justify-between items-center ">
         <h1 className="text-xl text-zinc-400 font-semibold">Trending</h1>
         <Dropdown onSelect={(value) => setCategory(value)} />
       </div>

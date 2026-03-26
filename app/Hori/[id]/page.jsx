@@ -56,7 +56,7 @@ const Page = () => {
   }
 
   return (
-    <div className="relative min-h-screen text-white overflow-hidden">
+    <div className="relative min-h-screen text-white overflow-hidden flex-1">
 
       
       <div className="absolute inset-0 -z-10">
