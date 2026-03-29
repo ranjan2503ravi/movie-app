@@ -1,36 +1,27 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+🎬 MovieVerse | Cinematic Experience
+A high-performance movie discovery platform built with Next.js 15 and TMDB API. This project focuses on immersive UI/UX, featuring fluid animations and a mobile-first design.
 
-## Getting Started
+🔗 Live Demo: movie-app-omega-murex.vercel.app
+🚀 Key Features
+Live Preview: Fully deployed and functional on Vercel.
 
-First, run the development server:
+Real-time Movie Discovery: Fetches trending, top-rated, and upcoming movies via TMDB API.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Cinematic Animations: Powered by GSAP and Framer Motion for smooth transitions and scroll-triggered effects.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Dynamic Search: Instant search functionality to find any movie or TV show.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Fully Responsive: Optimized for all screen sizes, ensuring 0px overflow and a polished mobile experience.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Server-Side Rendering (SSR): Fast initial load times and improved SEO.
 
-## Learn More
+🛠️ Tech Stack
+Framework: Next.js 15 (App Router)
 
-To learn more about Next.js, take a look at the following resources:
+Styling: Tailwind CSS
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Animations: GSAP, Framer Motion
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+API: TheMovieDB (TMDB)
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Deployment: Vercel
