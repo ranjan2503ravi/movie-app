@@ -105,7 +105,7 @@ const Sidenav = () => {
                   <IoIosInformationCircle /> About
                 </Link>
 
-                <Link href="/" className="nav-link">
+                <Link href="/contact" className="nav-link">
                   <FaSquarePhone /> Contact
                 </Link>
               </div>

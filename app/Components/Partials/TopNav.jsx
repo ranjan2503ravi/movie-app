@@ -55,7 +55,7 @@ const TopNav = () => {
 
                 
                 {Query && (
-                    <div className="absolute top-full mt-2 left-0 w-full max-h-[50vh] bg-[#1F1E24] rounded-xl shadow-lg shadow-black/30 overflow-y-auto z-[999] scrollbar-thin scrollbar-thumb-purple-500 scrollbar-track-transparent">
+                    <div className="absolute top-full mt-3 left-3 w-full max-h-[50vh] bg-[#1F1E24] rounded-xl shadow-lg shadow-black/30 overflow-y-auto z-[999] scrollbar-thin scrollbar-thumb-purple-500 scrollbar-track-transparent">
                         {searches.length > 0 ? (
                             searches.map((item) => {
                                 const title = item.title || item.name;
